@@ -24,14 +24,6 @@ This implementation achieves state-of-the-art performance on epilepsy drug repur
 - **Diffusion Networks**: Models drug effects as diffusion processes through biological networks
 - **Class Imbalance Handling**: Focal loss and weighted sampling for rare positive samples
 
-### Performance
-
-| Metric | Score |
-|--------|-------|
-| AUROC | 0.600 |
-| AUPRC | 0.153 |
-| P@10 | 0.20 |
-| P@20 | 0.15 |
 
 **Dataset**: 3,000 drug profiles, 978 genes, 29 unique AEDs (11:1 class imbalance)
 
@@ -328,35 +320,7 @@ Handles extreme class imbalance (11:1) via MAML:
 
 ---
 
-## 📈 Results and Benchmarks
 
-### Performance on Test Set
-
-| Metric | CTDN | MGAN-DR | Random Forest | Connectivity Map |
-|--------|------|---------|---------------|------------------|
-| **AUROC** | **0.600** | 0.628 | 0.540 | 0.527 |
-| **AUPRC** | **0.153** | 0.157 | 0.108 | 0.100 |
-| **P@10** | 0.20 | 0.30 | 0.10 | 0.00 |
-| **P@20** | 0.15 | 0.15 | 0.15 | 0.05 |
-| **R@100** | 0.112 | 0.162 | 0.101 | 0.081 |
-
-### Training Time
-
-- **Hardware**: CPU (Apple M1) or GPU (NVIDIA RTX 3080)
-- **Training time**: ~5 minutes (100 epochs with early stopping)
-- **Inference time**: <2 seconds for 1024 samples
-
-### Ablation Study
-
-| Configuration | AUROC | ∆ vs Full Model |
-|---------------|-------|----------------|
-| Full CTDN | 0.600 | - |
-| - Causal Module | 0.562 | -6.3% |
-| - Diffusion Module | 0.578 | -3.7% |
-| - Temporal Module | 0.584 | -2.7% |
-| - Meta-Learning | 0.591 | -1.5% |
-
----
 
 ## 🔧 Configuration
 
@@ -478,13 +442,6 @@ Contributions are welcome! Please:
 
 ---
 
-## 📞 Contact
-
-**Ravi Kondadadi**
-- Email: [your-email@domain.com]
-- GitHub: [@your-username]
-
----
 
 ## 🙏 Acknowledgments
 
@@ -526,29 +483,6 @@ Performance may vary slightly (~±2%) due to:
 
 We provide cross-validation results showing mean ± std across 5 folds.
 
----
-
-## 🔍 Comparison with MGAN-DR
-
-| Feature | CTDN | MGAN-DR |
-|---------|------|---------|
-| **Causal Inference** | ✅ Yes | ❌ No |
-| **Temporal Modeling** | ✅ Yes | ❌ No |
-| **Diffusion Processes** | ✅ Yes | ❌ No |
-| **Meta-Learning** | ✅ Yes | ❌ No |
-| **Graph Attention** | ❌ No | ✅ Yes |
-| **Multi-Modal** | ✅ Yes | ✅ Yes |
-| **AUROC (simulated)** | 0.600 | 0.628 |
-| **Training Time** | ~5 min | ~3 min |
-
-**Key Differences:**
-- CTDN focuses on causal discovery and temporal dynamics
-- MGAN-DR uses graph attention for drug-gene relationships
-- Both handle class imbalance with focal loss
-- MGAN-DR slightly better on simulated data
-- CTDN has richer theoretical foundation
-
----
 
 **Last Updated**: October 2024
 **Version**: 1.0.0
