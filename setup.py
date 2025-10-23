@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="ctdn",
     version="1.0.0",
-    author="Ravi Kondadadi",
+    author="Rishik Kondadadi",
     author_email="your-email@domain.com",
     description="Causal Temporal Diffusion Networks for Drug Repurposing",
     long_description=long_description,
